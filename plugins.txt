@@ -1,0 +1,8 @@
+git-client:latest
+scm-api:latest
+git:latest
+ruby:latest
+rake:latest
+ruby-runtime:latest
+rbenv:latest
+rubyMetrics:latest
