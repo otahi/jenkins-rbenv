@@ -2,6 +2,7 @@ FROM jenkins:latest
 MAINTAINER Hiroshi Ota <otahi.pub@gmail.com>
 
 USER root
+RUN apt-get update
 RUN apt-get install -y ruby-build
 RUN groupadd ruby
 RUN gpasswd -a jenkins ruby
