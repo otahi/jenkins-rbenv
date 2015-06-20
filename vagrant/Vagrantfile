@@ -1,0 +1,9 @@
+Vagrant.configure(2) do |config|
+  config.vm.provider 'docker' do |d|
+    d.vagrant_vagrantfile = './host/Vagrantfile'
+    d.image = 'otahi/jenkins-rbenv'
+    d.ports = ['8080:8080']
+    d.cmd = ['/usr/local/bin/jenkins.sh']
+    d.remains_running = true
+  end
+end
