@@ -3,6 +3,17 @@ MAINTAINER Hiroshi Ota <otahi.pub@gmail.com>
 
 USER root
 RUN apt-get update
+
+# mysqlの環境構築
+RUN yum install -y yum-utils http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
+RUN yum-config-manager --disable mysql56-community
+RUN yum-config-manager --enable mysql55-community
+RUN yum install -y mysql-server mysql-community-devel  # mysql-community-develはmysql_configのため
+
+ADD my.cnf /etc/my.cnf
+
+CMD ["/bin/sh"]
+
 RUN apt-get install -y ruby-build
 RUN groupadd ruby
 RUN gpasswd -a jenkins ruby
